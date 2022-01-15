@@ -5,14 +5,21 @@ import CharacterDetailsScreen from './src/containers/CharacterDetailsScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator(
+);
 
 export default function App() {
   return (
     <NavigationContainer>{
       <Stack.Navigator>
-      <Stack.Screen name="List" component={List} />
-      <Stack.Screen name="CharacterDetails" component={CharacterDetailsScreen}/>
+      <Stack.Screen name="List" component={List} options={{
+          title: 'Rick & Morty Characters',
+          headerTitleAlign: 'center'
+        }} />
+      <Stack.Screen name="CharacterDetails" component={CharacterDetailsScreen} options={{
+          title: 'Character Details',
+          headerTitleAlign: 'center'
+        }}/>
     </Stack.Navigator>
       }</NavigationContainer>
   );
