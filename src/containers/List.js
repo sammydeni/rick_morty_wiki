@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { FlatList, View, Text, Image, StyleSheet,  } from "react-native";
 
-const List = () => {
+const List = ( { navigation }) => {
   const [characters, setCharacters] = useState([]);
   const [extraData, setExtraData] = useState(false);
 
@@ -23,7 +23,13 @@ const List = () => {
   const renderItem = useCallback(({ item }) => {
     return (
         <TouchableOpacity
-        onPress = { () => {}}>
+        onPress = { () => {
+        navigation.navigate('CharacterDetails', {
+            characterName: item.name,
+            characterImg: item.image,
+        });
+    }
+        }>
       <View style={styles.container}>
         <Image source={{ uri: item.image }} style={styles.image} />
         
