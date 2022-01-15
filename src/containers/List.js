@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { FlatList, View, Text, Image, StyleSheet } from "react-native";
+import { TouchableOpacity } from 'react-native';
+import { FlatList, View, Text, Image, StyleSheet,  } from "react-native";
 
 const List = () => {
   const [characters, setCharacters] = useState([]);
@@ -13,11 +14,6 @@ const List = () => {
     }
 
     getCharacters().then(setCharacters);
-    // fetch('https://rickandmortyapi.com/api/character').then(result => {
-    //   result.json().then(characters => {
-    //     console.log(characters.results);
-    //   });
-    // });
   }, []);
 
   useEffect(() => {
@@ -26,10 +22,14 @@ const List = () => {
 
   const renderItem = useCallback(({ item }) => {
     return (
+        <TouchableOpacity
+        onPress = { () => {}}>
       <View style={styles.container}>
         <Image source={{ uri: item.image }} style={styles.image} />
+        
         <Text>{item.name}</Text>
       </View>
+      </TouchableOpacity>
     );
   }, []);
 
