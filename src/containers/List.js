@@ -6,7 +6,6 @@ import { TextInput } from 'react-native-gesture-handler';
 const List = ({ navigation }) => {
   const [characters, setCharacters] = useState([]);
   const [extraData, setExtraData] = useState(false);
-  const [filteredData, setFiltereData] = useState([]);
   const [search, setSearch] = useState('');
 
   useEffect(() => {
