@@ -1,10 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native';
-import { FlatList, View, Text, Image, StyleSheet,  } from "react-native";
+import { FlatList, View, Text, Image, StyleSheet, } from "react-native";
+import { TextInput } from 'react-native-gesture-handler';
 
-const List = ( { navigation }) => {
+const List = ({ navigation }) => {
   const [characters, setCharacters] = useState([]);
   const [extraData, setExtraData] = useState(false);
+  const [filteredData, setFiltereData] = useState([]);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     const getCharacters = async () => {
@@ -20,23 +23,36 @@ const List = ( { navigation }) => {
     console.log(characters);
   }, [characters]);
 
+const searchFilter = (text) => {
+  const url = `https://rickandmortyapi.com/api/character/?name=${text}`;
+  const getFilteredCharacter = async () => {
+    const result = await fetch(url);
+    const Filteredcharacters = await result.json();
+    return Filteredcharacters.results;
+  }
+  getFilteredCharacter().then(setCharacters);
+  setSearch(text);
+}
+
   const renderItem = useCallback(({ item }) => {
     return (
-        <TouchableOpacity
-        onPress = { () => {
-        navigation.navigate('CharacterDetails', {
+
+
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('CharacterDetails', {
             characterName: item.name,
             characterImg: item.image,
             characterStatus: item.status,
             characterSpecies: item.species,
-        });
-    }
+          });
+        }
         }>
-      <View style={styles.container}>
-        <Image source={{ uri: item.image }} style={styles.image} />
-        
-        <Text>{item.name}</Text>
-      </View>
+        <View style={styles.container}>
+          <Image source={{ uri: item.image }} style={styles.image} />
+
+          <Text>{item.name}</Text>
+        </View>
       </TouchableOpacity>
     );
   }, []);
@@ -50,15 +66,24 @@ const List = ( { navigation }) => {
   }, []);
 
   return (
-    <FlatList
-      data={characters}
-      renderItem={renderItem}
-      keyExtractor={keyExtractor}
-      extraData={extraData}
-      
-      contentContainerStyle={styles.flatListContainer}
-      ItemSeparatorComponent={ItemSeparatorComponent}
-    />
+    <View style={{ backgroundColor: 'white' }}>
+      <TextInput
+        style={styles.searchBar}
+        value={search}
+        placeholder="Search a Character"
+        underlineColorAndroid="transparent"
+        onChangeText={(text) => searchFilter(text)}
+      ></TextInput>
+      <FlatList
+        data={characters}
+        renderItem={renderItem}
+        keyExtractor={keyExtractor}
+        extraData={extraData}
+
+        contentContainerStyle={styles.flatListContainer}
+        ItemSeparatorComponent={ItemSeparatorComponent}
+      />
+    </View>
   );
 };
 
@@ -87,8 +112,16 @@ const styles = StyleSheet.create({
   },
   flatListContainer: {
     paddingHorizontal: 16,
-    paddingVertical: 40,
+    paddingVertical: 20,
   },
+  searchBar: {
+    height: 40,
+    borderWidth: 1,
+    paddingLeft: 10,
+    marginVertical: 5,
+    marginHorizontal: 16,
+    borderRadius: 5,
+  }
 });
 
 export default List;
