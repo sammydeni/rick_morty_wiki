@@ -27,6 +27,8 @@ const List = ( { navigation }) => {
         navigation.navigate('CharacterDetails', {
             characterName: item.name,
             characterImg: item.image,
+            characterStatus: item.status,
+            characterSpecies: item.species,
         });
     }
         }>
