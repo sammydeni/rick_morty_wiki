@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { FlatList, View, Text, Image, StyleSheet, } from "react-native";
 import { TextInput } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const List = ({ navigation }) => {
   const [characters, setCharacters] = useState([]);
@@ -65,7 +66,7 @@ const searchFilter = (text) => {
   }, []);
 
   return (
-    <View style={{ backgroundColor: 'white' }}>
+    <View style={{ backgroundColor: 'white', paddingTop:20, flex: 1 }}>
       <TextInput
         style={styles.searchBar}
         value={search}
@@ -73,6 +74,7 @@ const searchFilter = (text) => {
         underlineColorAndroid="transparent"
         onChangeText={(text) => searchFilter(text)}
       ></TextInput>
+      
       <FlatList
         data={characters}
         renderItem={renderItem}
@@ -95,8 +97,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     shadowColor: "#000",
     shadowOffset: {
-      width: 0,
-      height: 4,
+      // width: 0,
+      // height: 4,
     },
     shadowOpacity: 0.32,
     shadowRadius: 5.46,
@@ -111,13 +113,13 @@ const styles = StyleSheet.create({
   },
   flatListContainer: {
     paddingHorizontal: 16,
-    paddingVertical: 20,
+    paddingVertical: 10,
   },
   searchBar: {
     height: 40,
     borderWidth: 1,
     paddingLeft: 10,
-    marginVertical: 5,
+    marginBottom: 10,
     marginHorizontal: 16,
     borderRadius: 5,
   }
