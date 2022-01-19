@@ -45,6 +45,8 @@ const searchFilter = (text) => {
             characterImg: item.image,
             characterStatus: item.status,
             characterSpecies: item.species,
+            characterGender: item.gender,
+            characterOrigin: item.origin.name
           });
         }
         }>

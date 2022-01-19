@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, } from "react-native";
 const CharacterDetailsScreen = ({ route, navigation }) => {
-    const { characterName, characterImg, characterStatus, characterSpecies } = route.params;
+    const { characterName, characterImg, characterStatus, characterSpecies, characterGender, characterOrigin } = route.params;
     return (
         <View style={styles.detailBox}>
             <Text style={styles.chName}>{characterName} </Text>
@@ -10,11 +10,18 @@ const CharacterDetailsScreen = ({ route, navigation }) => {
                 <View style={styles.info}>
                     <Text style={styles.infoTitle}>Status</Text>
                     <Text style={styles.infoText}>{characterStatus}</Text>
-
                 </View>
                 <View style={styles.info}>
                     <Text style={styles.infoTitle}>Species</Text>
                     <Text style={styles.infoText}>{characterSpecies}</Text>
+                </View>
+                <View style={styles.info}>
+                    <Text style={styles.infoTitle}>Gender</Text>
+                    <Text style={styles.infoText}>{characterGender}</Text>
+                </View>
+                <View style={styles.info}>
+                    <Text style={styles.infoTitle}>Origin</Text>
+                    <Text style={styles.infoText}>{characterOrigin}</Text>
                 </View>
             </View>
         </View>
@@ -41,11 +48,14 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     infoBox: {
-        flexDirection: 'row',
         marginTop: 20,
+        flex: 1,
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        
     },
     info: {
-        width: '50%',
+        flexBasis: '50%'
     },
     infoTitle: {
         textAlign: 'center',
