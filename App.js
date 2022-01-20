@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import StartingPage from './src/containers/StartingPage';
 import List from './src/containers/List';
 import CharacterDetailsScreen from './src/containers/CharacterDetailsScreen';
 import { NavigationContainer } from '@react-navigation/native';
@@ -12,9 +13,13 @@ export default function App() {
   return (
     <NavigationContainer>{
       <Stack.Navigator>
+      <Stack.Screen name="Start" component={StartingPage} options={{
+        headerShown: false
+      }}/>
       <Stack.Screen name="List" component={List} options={{
-          title: 'Rick & Morty Characters',
-          headerTitleAlign: 'center'
+          // title: 'Rick & Morty Characters',
+          // headerTitleAlign: 'center',
+          headerShown: false
         }} />
       <Stack.Screen name="CharacterDetails" component={CharacterDetailsScreen} options={{
           title: 'Character Details',

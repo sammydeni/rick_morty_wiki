@@ -68,7 +68,7 @@ const searchFilter = (text) => {
   }, []);
 
   return (
-    <View style={{ backgroundColor: 'white', paddingTop:20, flex: 1 }}>
+    <View style={{ marginTop: 50,backgroundColor: 'white', paddingTop:20, flex: 1 }}>
       <TextInput
         style={styles.searchBar}
         value={search}

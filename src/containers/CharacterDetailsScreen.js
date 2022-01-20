@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
     chName: {
         textAlign: "center",
         fontSize: 30,
-        fontFamily: 'sans-serif-medium'
+        fontFamily: 'sans-serif-medium',
+        marginTop: 10
 
     },
     chImage: {
@@ -55,7 +56,8 @@ const styles = StyleSheet.create({
         
     },
     info: {
-        flexBasis: '50%'
+        flexBasis: '50%',
+        marginVertical: 20,
     },
     infoTitle: {
         textAlign: 'center',
