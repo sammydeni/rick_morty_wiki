@@ -30,15 +30,17 @@ const CharacterDetailsScreen = ({ route, navigation }) => {
 
 const styles = StyleSheet.create({
     detailBox: {
-        backgroundColor: 'white',
+        backgroundColor: '#0E7F81',
         height: '100%',
         flexDirection: 'column',
+        
     },
     chName: {
         textAlign: "center",
         fontSize: 30,
         fontFamily: 'sans-serif-medium',
-        marginTop: 10
+        marginTop: 10,
+        color: '#DAD2D8'
 
     },
     chImage: {
@@ -54,21 +56,24 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         flexDirection: 'row',
         
+        
     },
     info: {
         flexBasis: '50%',
-        marginVertical: 20,
+        marginVertical: 10,
     },
     infoTitle: {
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 18,
-        fontFamily: 'monospace'
+        fontFamily: 'monospace',
+        color: '#DAD2D8'
 
     },
     infoText: {
         textAlign: 'center',
-        fontFamily: 'monospace'
+        fontFamily: 'monospace',
+        color: '#DAD2D8'
 
 
     }

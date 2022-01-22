@@ -53,7 +53,7 @@ const searchFilter = (text) => {
         <View style={styles.container}>
           <Image source={{ uri: item.image }} style={styles.image} />
 
-          <Text>{item.name}</Text>
+          <Text style={{color: '#DAD2D8'}}>{item.name}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -68,11 +68,12 @@ const searchFilter = (text) => {
   }, []);
 
   return (
-    <View style={{ marginTop: 50,backgroundColor: 'white', paddingTop:20, flex: 1 }}>
+    <View style={{ marginTop: 50,backgroundColor: '#2C5263', paddingTop:20, flex: 1 }}>
       <TextInput
         style={styles.searchBar}
         value={search}
         placeholder="Search a Character"
+        placeholderTextColor='#DAD2D8'
         underlineColorAndroid="transparent"
         onChangeText={(text) => searchFilter(text)}
       ></TextInput>
@@ -94,17 +95,18 @@ const styles = StyleSheet.create({
   container: {
     height: 70,
     flexDirection: 'row',
-    backgroundColor: 'white',
+    backgroundColor: '#0F8B8D',
+    borderRadius: 4,
     paddingHorizontal: 16,
     alignItems: 'center',
     shadowColor: "#000",
     shadowOffset: {
-      // width: 0,
-      // height: 4,
+      width: 0,
+      height: 4,
     },
     shadowOpacity: 0.32,
     shadowRadius: 5.46,
-    elevation: 9,
+    elevation: 0,
   },
   image: {
     width: 60,
@@ -119,11 +121,11 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     height: 40,
-    borderWidth: 1,
     paddingLeft: 10,
     marginBottom: 10,
     marginHorizontal: 16,
     borderRadius: 5,
+    backgroundColor: '#0F8B8D',
   }
 });
 

@@ -22,7 +22,11 @@ export default function App() {
         }} />
       <Stack.Screen name="CharacterDetails" component={CharacterDetailsScreen} options={{
           title: 'Character Details',
-          headerTitleAlign: 'center'
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#0F8B8D'
+          }
+
         }}/>
     </Stack.Navigator>
       }</NavigationContainer>

@@ -46,7 +46,8 @@ const StartingPage = ({ navigation}) => {
 const styles = StyleSheet.create({
     container: {
         height: '100%',
-        marginTop: 40
+        marginTop: 40,
+        backgroundColor: '#143642'
     },
     mainImg: {
         width: 300,
@@ -57,7 +58,8 @@ const styles = StyleSheet.create({
         fontFamily: 'Outfit_500Medium',
         fontSize: 40, 
         paddingVertical: 6,
-        textAlign: "center"
+        textAlign: "center",
+        color: '#EC9A29'
 
 
     },
@@ -69,7 +71,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 100,
         paddingVertical: 10,
         borderRadius: 10,
-        backgroundColor: "#22b54a",
+        backgroundColor: "#0F8B8D",
+        color: '#DAD2D8'
     }
 });
 
