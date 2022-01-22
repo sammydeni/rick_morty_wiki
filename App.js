@@ -17,8 +17,7 @@ export default function App() {
         headerShown: false
       }}/>
       <Stack.Screen name="List" component={List} options={{
-          // title: 'Rick & Morty Characters',
-          // headerTitleAlign: 'center',
+          
           headerShown: false
         }} />
       <Stack.Screen name="CharacterDetails" component={CharacterDetailsScreen} options={{
